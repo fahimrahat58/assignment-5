@@ -170,16 +170,6 @@
     "badge": "Modern"
   },
   {
-    "id": "daisyui",
-    "name": "DaisyUI",
-    "category": "Styling",
-    "description": "The most popular component library for Tailwind CSS with clean semantic class names.",
-    "icon": "https://icon.icepanel.io/Technology/svg/DaisyUI.svg",
-    "rating": 4.7,
-    "difficulty": "Beginner-Friendly",
-    "badge": "Components"
-  },
-  {
     "id": "sass",
     "name": "Sass",
     "category": "Styling",
