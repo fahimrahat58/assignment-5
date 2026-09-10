@@ -15,7 +15,7 @@ function Navbar() {
           ☰
         </button>
 
-        <div className="absolute left-1/2 -translate-x-[55%] md:static md:translate-x-0">
+        <div className="absolute left-1/2 translate-x-[55%] md:static md:translate-x-0">
           <img
             src={logo}
             alt="Dev Stack"

@@ -10,7 +10,6 @@ function TechSection({ techPromise }: Props) {
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
-      {/* Header Area */}
       <div className="mb-6 sm:mb-8 text-left">
         <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
           Explore the{" "}
@@ -25,14 +24,12 @@ function TechSection({ techPromise }: Props) {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
-        {/* Mobile: 1 Col | Tablet: 2 Cols | Laptop/Desktop: 3 Cols */}
         <div className="w-full lg:w-3/4 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
           {technologies.map((tech) => (
             <div
               key={tech.id}
               className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out p-4 sm:p-5 flex flex-col justify-between"
             >
-              {/* Top: Icon & Badge */}
               <div>
                 <div className="flex items-center justify-between mb-3 sm:mb-4">
                   <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 border border-slate-100">
@@ -94,7 +91,6 @@ function TechSection({ techPromise }: Props) {
           ))}
         </div>
 
-        {/* Your Stack */}
         <div className="w-full lg:w-1/4 order-1 lg:order-2 lg:sticky lg:top-20">
           <div className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-5 shadow-sm">
             <h3 className="text-base sm:text-lg font-bold text-slate-900">
