@@ -1,32 +1,19 @@
-# React + TypeScript + Vite
+# StackForge
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+StackForge is a modern web application that helps developers explore, compare, and build their ideal technology stack. Users can browse different technologies and add their preferred tools to a personalized stack.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- TypeScript
+- Tailwind CSS
+- DaisyUI
+- React Toastify
+- Vite
+- JSON / Fetch API
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+- **Explore Technologies** — Browse frontend, backend, database, and development tools with useful details.
+- **Build Your Stack** — Add technologies to your personal stack and remove them individually or all at once.
+- **Interactive UI & Notifications** — Responsive design with loading states, hover effects, and toast notifications for user actions.
