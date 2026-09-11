@@ -23,10 +23,10 @@ Question 1-  JSX is a syntax  for JavaScript that allows us to write HTML-like c
 
 Question 2- Props are  passed from a parent component to a child component, on the other hand state is mutable data managed inside a component. Props are mainly used for communication between components, whereas state is used to manage dynamic data and changes in the UI.
 
-Question 3- The useState hook is used to create and manage state in a React functional component.When the state changes, React re-renders the component and updates the UI.I have used useState in my Navbar tsx because without useState hamburger menu is quite impsossible for mobile responsive also i have used in my TechCard tsx for button interactive.
+Question 3- The useState hook is used to create and manage state in a React functional component.When the state changes, React re-renders the component and updates the UI.I have used in my TechCard tsx for button interactive.
 
 
-Question 4- The useEffect hook is used to perform side effects in a React component, such as fetching data, setting up event listeners, or working with timers. I often used useEffect to fetch the JSON data after the component rendered and then stored the fetched data in state.
+Question 4- The useEffect hook is used to perform side effects in a React component, such as fetching data, setting up event listeners, or working with timers. I did not use useEffect in this project. I loaded the JSON data using the Fetch API and handled the data with React Suspense and the use() hook.
 
 Question 5- Every item in a .map() list needs a unique key prop so that React can identify each item efficiently. It helps React determine which items have been added, removed, or changed and update the DOM correctly.
 
