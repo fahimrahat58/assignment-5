@@ -53,7 +53,6 @@ function Footer() {
           </div>
 
           <div className="grid grid-cols-2 gap-8 text-center sm:grid-cols-3 sm:text-left md:col-span-7">
-            {/* Product */}
             <div>
               <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-900 sm:mb-4">
                 Product
