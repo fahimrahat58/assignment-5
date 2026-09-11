@@ -7,10 +7,10 @@ StackForge is a modern web application that helps developers explore, compare, a
 - React
 - TypeScript
 - Tailwind CSS
-- DaisyUI
 - React Toastify
 - Vite
 - JSON / Fetch API
+
 
 ## Features
 
