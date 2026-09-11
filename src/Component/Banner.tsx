@@ -11,7 +11,7 @@ function Banner() {
           <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             <div>Build Your Ideal</div>
 
-            <div className="bg-linear-to-r from-[#FF5E36] via-[#E60067] to-[#8F00FF] bg-clip-text text-transparent">
+            <div className="gradient-text bg-clip-text text-transparent">
               Development Stack
             </div>
           </h1>
