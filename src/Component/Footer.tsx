@@ -53,7 +53,7 @@ function Footer() {
                 <li>
                   <a
                     href="#home"
-                    className="hover:text-[#E60067] transition-colors"
+                    className="hover:text-[#303030] transition-colors"
                   >
                     Home
                   </a>
@@ -61,7 +61,7 @@ function Footer() {
                 <li>
                   <a
                     href="#technologies"
-                    className="hover:text-[#E60067] transition-colors"
+                    className="hover:text-[#303030] transition-colors"
                   >
                     Technologies
                   </a>
@@ -69,7 +69,7 @@ function Footer() {
                 <li>
                   <a
                     href="#projects"
-                    className="hover:text-[#E60067] transition-colors"
+                    className="hover:text-[#303030] transition-colors"
                   >
                     Projects
                   </a>
@@ -84,7 +84,7 @@ function Footer() {
                 <li>
                   <a
                     href="#about"
-                    className="hover:text-[#E60067] transition-colors"
+                    className="hover:text-[#303030] transition-colors"
                   >
                     About
                   </a>
@@ -92,7 +92,7 @@ function Footer() {
                 <li>
                   <a
                     href="#contact"
-                    className="hover:text-[#E60067] transition-colors"
+                    className="hover:text-[#303030] transition-colors"
                   >
                     Contact
                   </a>
@@ -100,7 +100,7 @@ function Footer() {
                 <li>
                   <a
                     href="#careers"
-                    className="hover:text-[#E60067] transition-colors"
+                    className="hover:text-[#303030] transition-colors"
                   >
                     Careers
                   </a>
@@ -116,7 +116,7 @@ function Footer() {
                 <li>
                   <a
                     href="#privacy"
-                    className="hover:text-[#E60067] transition-colors"
+                    className="hover:text-[#303030] transition-colors"
                   >
                     Privacy Policy
                   </a>
@@ -124,7 +124,7 @@ function Footer() {
                 <li>
                   <a
                     href="#terms"
-                    className="hover:text-[#E60067] transition-colors"
+                    className="hover:text-[#303030] transition-colors"
                   >
                     Terms of Service
                   </a>

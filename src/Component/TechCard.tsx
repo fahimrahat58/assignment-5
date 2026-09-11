@@ -1,4 +1,4 @@
-import { use } from "react";
+import { use, useState } from "react";
 import type { Technology } from "./Type";
 
 type Props = {
@@ -8,104 +8,204 @@ type Props = {
 function TechSection({ techPromise }: Props) {
   const technologies = use(techPromise);
 
+  const [yourStack, setYourStack] = useState<string[]>([]);
+
+  const handleAddToStack = (id: string | number) => {
+    const techId = String(id);
+
+    if (!yourStack.includes(techId)) {
+      setYourStack([...yourStack, techId]);
+    }
+  };
+
+  const handleRemoveFromStack = (id: string | number) => {
+    const techId = String(id);
+
+    setYourStack(yourStack.filter((item) => item !== techId));
+  };
+
+  const handleRemoveAll = () => {
+    setYourStack([]);
+  };
+
+  const selectedTechnologies = technologies.filter((tech) =>
+    yourStack.includes(String(tech.id))
+  );
+
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
-      <div className="mb-6 sm:mb-8 text-left">
-        <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+    <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10 lg:px-8">
+      <div className="mb-6 text-left sm:mb-8">
+        <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
           Explore the{" "}
           <span className="bg-linear-to-r from-[#FF5E36] via-[#E60067] to-[#8F00FF] bg-clip-text text-transparent">
             Technologies
           </span>
         </h1>
 
-        <p className="mt-1.5 sm:mt-2 text-slate-500 text-xs sm:text-base font-normal">
+        <p className="mt-1.5 text-xs font-normal text-slate-500 sm:mt-2 sm:text-base">
           Add any technologies you like — each one can be added only once.
         </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
-        <div className="w-full lg:w-3/4 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
-          {technologies.map((tech) => (
-            <div
-              key={tech.id}
-              className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out p-4 sm:p-5 flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-3 sm:mb-4">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 border border-slate-100">
-                    {tech.icon ? (
-                      <img
-                        src={tech.icon}
-                        alt={tech.name}
-                        className="w-6 h-6 sm:w-7 sm:h-7 object-contain"
-                      />
-                    ) : (
-                      <span className="text-base sm:text-lg font-bold text-slate-800">
-                        {tech.name.charAt(0)}
+      <div className="flex flex-col items-start gap-6 lg:flex-row lg:gap-8">
+        {/* Technology Cards */}
+        <div className="order-2 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3 lg:order-1 lg:w-3/4">
+          {technologies.map((tech) => {
+            const isAdded = yourStack.includes(String(tech.id));
+
+            return (
+              <div
+                key={tech.id}
+                className={`flex flex-col justify-between rounded-2xl bg-white p-4 transition-all duration-500 ease-out sm:p-5 ${
+                  isAdded
+                    ? "border border-pink-400 shadow-lg"
+                    : "border border-slate-100 shadow-sm hover:-translate-y-2 hover:shadow-xl"
+                }`}
+              >
+                <div>
+                  <div className="mb-3 flex items-center justify-between sm:mb-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-100 bg-slate-50">
+                      {tech.icon ? (
+                        <img
+                          src={tech.icon}
+                          alt={tech.name}
+                          className="h-6 w-6 object-contain sm:h-7 sm:w-7"
+                        />
+                      ) : (
+                        <span className="text-base font-bold text-slate-800 sm:text-lg">
+                          {tech.name.charAt(0)}
+                        </span>
+                      )}
+                    </div>
+
+                    {tech.badge && (
+                      <span className="rounded-full border border-pink-100 bg-pink-50 px-2.5 py-0.5 text-[10px] font-semibold text-[#E60067] sm:text-[11px]">
+                        {tech.badge}
                       </span>
                     )}
                   </div>
 
-                  {tech.badge && (
-                    <span className="bg-pink-50 text-[#E60067] text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full border border-pink-100">
-                      {tech.badge}
-                    </span>
-                  )}
+                  <h2 className="mb-1 text-base font-bold text-slate-900 sm:text-lg">
+                    {tech.name}
+                  </h2>
+
+                  <p className="mb-4 line-clamp-3 text-xs leading-relaxed text-slate-500 sm:mb-5 sm:text-sm">
+                    {tech.description}
+                  </p>
                 </div>
 
-                <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-1">
-                  {tech.name}
-                </h2>
+                <div>
+                  <div className="mb-3 flex flex-wrap items-center gap-1.5 text-[10px] font-medium text-slate-500 sm:mb-4 sm:text-[11px]">
+                    {tech.category && (
+                      <span className="rounded bg-slate-100 px-2 py-0.5 text-slate-600">
+                        {tech.category}
+                      </span>
+                    )}
 
-                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5 line-clamp-3">
-                  {tech.description}
-                </p>
-              </div>
+                    {tech.difficulty && (
+                      <span className="max-w-25 truncate rounded bg-slate-100 px-2 py-0.5 text-slate-600">
+                        {tech.difficulty}
+                      </span>
+                    )}
 
-              <div>
-                <div className="flex items-center flex-wrap gap-1.5 text-[10px] sm:text-[11px] font-medium text-slate-500 mb-3 sm:mb-4">
-                  {tech.category && (
-                    <span className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                      {tech.category}
-                    </span>
-                  )}
+                    {tech.rating && (
+                      <span className="ml-auto flex items-center gap-1 font-semibold text-slate-700">
+                        <span className="text-amber-400">★</span>
+                        {tech.rating}
+                      </span>
+                    )}
+                  </div>
 
-                  {tech.difficulty && (
-                    <span className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded truncate max-w-[100px]">
-                      {tech.difficulty}
-                    </span>
-                  )}
-
-                  {tech.rating && (
-                    <span className="flex items-center gap-1 font-semibold text-slate-700 ml-auto">
-                      <span className="text-amber-400">★</span> {tech.rating}
-                    </span>
-                  )}
+                  <button
+                    onClick={() => handleAddToStack(tech.id)}
+                    disabled={isAdded}
+                    className={`w-full rounded-xl px-4 py-2.5 text-xs font-semibold transition duration-200 active:scale-[0.98] sm:text-sm ${
+                      isAdded
+                        ? "cursor-default border border-pink-100 bg-pink-50 text-[#E60067]"
+                        : "cursor-pointer bg-[#0F172A] text-white shadow-sm hover:bg-black"
+                    }`}
+                  >
+                    {isAdded ? "✓ Added to Stack" : "Add to Stack"}
+                  </button>
                 </div>
-
-                <button className="w-full bg-[#0F172A] hover:bg-black text-white font-semibold py-2.5 px-4 rounded-xl text-xs sm:text-sm transition duration-200 shadow-sm active:scale-[0.98]">
-                  Add to Stack
-                </button>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        <div className="w-full lg:w-1/4 order-1 lg:order-2 lg:sticky lg:top-20">
-          <div className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-5 shadow-sm">
-            <h3 className="text-base sm:text-lg font-bold text-slate-900">
+        {/* Your Stack */}
+        <div className="order-1 w-full lg:sticky lg:top-20 lg:order-2 lg:w-1/4">
+          <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm sm:p-5">
+            <h3 className="text-base font-bold text-slate-900 sm:text-lg">
               Your Stack
             </h3>
 
-            <p className="text-xs text-slate-400 mt-0.5">
-              No Technology Selected
+            <p className="mt-0.5 text-xs text-slate-400">
+              {selectedTechnologies.length === 0
+                ? "No Technology Selected"
+                : `${selectedTechnologies.length} Technology${
+                    selectedTechnologies.length > 1 ? "ies" : "y"
+                  } Selected`}
             </p>
 
-            <div className="mt-3 sm:mt-4 border border-dashed border-slate-200 rounded-xl p-6 text-center flex items-center justify-center min-h-[100px] lg:min-h-[140px]">
-              <span className="text-xs text-slate-400 font-medium">
-                Your stack is empty.
-              </span>
-            </div>
+            {selectedTechnologies.length === 0 ? (
+              <div className="mt-3 flex min-h-25 items-center justify-center rounded-xl border border-dashed border-slate-200 p-6 text-center sm:mt-4 lg:min-h-35">
+                <span className="text-xs font-medium text-slate-400">
+                  Your stack is empty.
+                </span>
+              </div>
+            ) : (
+              <>
+                <div className="mt-3 space-y-3 sm:mt-4">
+                  {selectedTechnologies.map((tech) => (
+                    <div
+                      key={tech.id}
+                      className="flex items-center justify-between rounded-xl border border-slate-200 p-3"
+                    >
+                      <div className="flex min-w-0 items-center gap-3">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-50">
+                          {tech.icon ? (
+                            <img
+                              src={tech.icon}
+                              alt={tech.name}
+                              className="h-7 w-7 object-contain"
+                            />
+                          ) : (
+                            <span className="font-bold text-slate-800">
+                              {tech.name.charAt(0)}
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="min-w-0">
+                          <h4 className="truncate text-sm font-bold text-slate-900">
+                            {tech.name}
+                          </h4>
+
+                          <p className="truncate text-xs text-slate-500">
+                            {tech.category || "Technology"}
+                          </p>
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => handleRemoveFromStack(tech.id)}
+                        className="ml-2 cursor-pointer px-1 text-2xl font-light text-slate-400 transition hover:text-slate-700"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  onClick={handleRemoveAll}
+                  className="mt-4 w-full cursor-pointer rounded-xl border border-red-200 bg-white py-2.5 text-sm font-semibold text-red-600 transition hover:bg-red-50"
+                >
+                  Remove All
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>

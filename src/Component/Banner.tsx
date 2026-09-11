@@ -19,11 +19,11 @@ function Banner() {
           </p>
 
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
-            <button className="w-full sm:w-auto bg-linear-to-r from-[#FF5A36] to-[#A825E0] hover:opacity-90 text-white font-semibold tracking-wide px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg transition duration-200 shadow-sm text-xs sm:text-sm">
+            <button className="w-full cursor-pointer sm:w-auto bg-linear-to-r from-[#FF5A36] to-[#A825E0] hover:opacity-90 text-white font-semibold tracking-wide px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg transition duration-200 shadow-sm text-xs sm:text-sm">
               Explore Technologies
             </button>
 
-            <button className="w-full sm:w-auto bg-white border border-gray-300 hover:bg-gray-50 text-slate-700 font-semibold tracking-wide px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg transition duration-200 text-xs sm:text-sm shadow-sm">
+            <button className="w-full cursor-pointer sm:w-auto bg-white border border-gray-300 hover:bg-gray-50 text-slate-700 font-semibold tracking-wide px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg transition duration-200 text-xs sm:text-sm shadow-sm">
               Learn More
             </button>
           </div>

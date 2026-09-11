@@ -10,16 +10,16 @@ function Navbar() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-2xl text-slate-700 md:hidden"
+          className="cursor-pointer text-2xl text-slate-700 md:hidden"
         >
           ☰
         </button>
 
-        <div className="absolute left-1/2 translate-x-[55%] md:static md:translate-x-0">
+        <div className="ml-4 md:ml-0">
           <img
             src={logo}
             alt="Dev Stack"
-            className="w-28 sm:w-32"
+            className="w-24 cursor-pointer sm:w-28 md:w-32"
           />
         </div>
 
@@ -31,70 +31,70 @@ function Navbar() {
           </li>
 
           <li>
-            <a href="#" className="hover:text-pink-600">
+            <a href="#" className="hover:text-[#303030]">
               Technologies
             </a>
           </li>
 
           <li>
-            <a href="#" className="hover:text-pink-600">
+            <a href="#" className="hover:text-[#303030]">
               Projects
             </a>
           </li>
 
           <li>
-            <a href="#" className="hover:text-pink-600">
+            <a href="#" className="hover:text-[#303030]">
               About
             </a>
           </li>
 
           <li>
-            <a href="#" className="hover:text-pink-600">
+            <a href="#" className="hover:text-[#303030]">
               Contact
             </a>
           </li>
         </ul>
 
         <div className="ml-auto flex items-center gap-2 sm:gap-4">
-          <button className="text-xs font-semibold text-slate-600 transition hover:text-pink-600 sm:text-sm">
+          <button className="cursor-pointer text-xs font-semibold text-slate-600 transition hover:text-[#303030] sm:text-sm">
             Sign In
           </button>
 
-          <button className="rounded-full bg-pink-600 px-3 py-2 text-xs font-bold text-white transition hover:bg-pink-700 sm:px-5 sm:text-sm">
+          <button className="cursor-pointer rounded-full bg-pink-600 px-3 py-2 text-xs font-bold text-white transition sm:px-5 sm:text-sm">
             Sign Up
           </button>
         </div>
       </div>
 
       {isOpen && (
-        <div className="border-t border-gray-200 bg-white px-5 py-4 md:hidden">
+        <div className="border-t border-gray-100 bg-white px-4 py-4 md:hidden">
           <ul className="flex flex-col gap-4 text-sm font-semibold text-slate-600">
             <li>
-              <a href="#" className="text-pink-600">
+              <a href="#" className="block text-pink-600">
                 Home
               </a>
             </li>
 
             <li>
-              <a href="#" className="hover:text-pink-600">
+              <a href="#" className="block hover:text-[#303030]">
                 Technologies
               </a>
             </li>
 
             <li>
-              <a href="#" className="hover:text-pink-600">
+              <a href="#" className="block hover:text-[#303030]">
                 Projects
               </a>
             </li>
 
             <li>
-              <a href="#" className="hover:text-pink-600">
+              <a href="#" className="block hover:text-[#303030]">
                 About
               </a>
             </li>
 
             <li>
-              <a href="#" className="hover:text-pink-600">
+              <a href="#" className="block hover:text-[#303030]">
                 Contact
               </a>
             </li>
