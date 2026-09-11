@@ -1,9 +1,10 @@
+import { Suspense } from "react";
+
 import Banner from "./Component/Banner";
 import Navbar from "./Component/Navbar";
-import type { Technology } from "./Component/Type";
 import TechCard from "./Component/TechCard";
-import { Suspense } from "react";
 import Footer from "./Component/Footer";
+import type { Technology } from "./Component/Type";
 
 async function getTechnology(): Promise<Technology[]> {
   const response = await fetch("/data.json");
@@ -13,6 +14,7 @@ async function getTechnology(): Promise<Technology[]> {
   }
 
   const data = await response.json();
+
   return data;
 }
 
@@ -22,12 +24,22 @@ function App() {
   return (
     <>
       <Navbar />
+
       <Banner />
 
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense
+        fallback={
+          <div className="flex min-h-50 items-center justify-center">
+            <p className="text-sm font-semibold text-slate-500 sm:text-base">
+              Loading technologies...
+            </p>
+          </div>
+        }
+      >
         <TechCard techPromise={techPromise} />
       </Suspense>
-      <Footer/>
+
+      <Footer />
     </>
   );
 }

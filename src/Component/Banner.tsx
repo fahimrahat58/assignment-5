@@ -2,38 +2,48 @@ import Banner2 from "../assets/banner-stack.png";
 
 function Banner() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-      <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12">
-        <div className="w-full lg:w-1/2 text-center lg:text-left">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
+    <section
+      id="home"
+      className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8"
+    >
+      <div className="flex flex-col-reverse items-center justify-between gap-8 lg:flex-row lg:gap-12">
+        <div className="w-full text-center lg:w-1/2 lg:text-left">
+          <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             <div>Build Your Ideal</div>
+
             <div className="bg-linear-to-r from-[#FF5E36] via-[#E60067] to-[#8F00FF] bg-clip-text text-transparent">
               Development Stack
             </div>
           </h1>
 
-          <p className="mt-4 text-slate-500 text-sm sm:text-base leading-relaxed max-w-lg mx-auto lg:mx-0 font-normal">
+          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-slate-500 sm:text-base lg:mx-0">
             Explore frontend, backend, database, and tooling options, compare
             them side by side, and put together the stack that fits your next
             project.
           </p>
 
-          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
-            <button className="w-full cursor-pointer sm:w-auto bg-linear-to-r from-[#FF5A36] to-[#A825E0] hover:opacity-90 text-white font-semibold tracking-wide px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg transition duration-200 shadow-sm text-xs sm:text-sm">
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
+            <a
+              href="#technologies"
+              className="w-full rounded-lg bg-linear-to-r from-[#FF5E36] via-[#E60067] to-[#8F00FF] px-5 py-3 text-center text-sm font-semibold text-white shadow-sm transition duration-200 hover:opacity-90 sm:w-auto"
+            >
               Explore Technologies
-            </button>
+            </a>
 
-            <button className="w-full cursor-pointer sm:w-auto bg-white border border-gray-300 hover:bg-gray-50 text-slate-700 font-semibold tracking-wide px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg transition duration-200 text-xs sm:text-sm shadow-sm">
+            <a
+              href="#technologies"
+              className="w-full rounded-lg border border-gray-300 bg-white px-5 py-3 text-center text-sm font-semibold text-slate-700 shadow-sm transition duration-200 hover:bg-gray-50 sm:w-auto"
+            >
               Learn More
-            </button>
+            </a>
           </div>
         </div>
 
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+        <div className="flex w-full justify-center lg:w-1/2 lg:justify-end">
           <img
             src={Banner2}
-            alt="bannerimage"
-            className="w-full max-w-70 sm:max-w-sm lg:max-w-lg h-auto object-contain drop-shadow-md"
+            alt="Dev Stack banner"
+            className="h-auto w-full max-w-70 object-contain drop-shadow-md sm:max-w-sm lg:max-w-lg"
           />
         </div>
       </div>

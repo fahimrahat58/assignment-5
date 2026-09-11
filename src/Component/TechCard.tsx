@@ -15,54 +15,30 @@ function TechSection({ techPromise }: Props) {
   const handleAddToStack = (id: string | number, name: string) => {
     const techId = String(id);
 
-    if (!yourStack.includes(techId)) {
-      setYourStack([...yourStack, techId]);
-
-      toast.success(`${name} added to your stack!`, {
-        position: "bottom-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
+    if (yourStack.includes(techId)) {
+      toast.warning(`${name} is already in your stack!`);
+      return;
     }
+
+    setYourStack((prev) => [...prev, techId]);
+
+    toast.success(`${name} added to your stack!`);
   };
 
   const handleRemoveFromStack = (id: string | number, name: string) => {
     const techId = String(id);
 
-    setYourStack(yourStack.filter((item) => item !== techId));
+    setYourStack((prev) => prev.filter((item) => item !== techId));
 
-    toast.info(`${name} removed from your stack!`, {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-    });
+    toast.info(`${name} removed from your stack!`);
   };
+
   const handleRemoveAll = () => {
+    if (yourStack.length === 0) return;
+
     setYourStack([]);
 
-    toast.info("Stack Cleared", {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-    });
+    toast.info("Stack Cleared");
   };
 
   const selectedTechnologies = technologies.filter((tech) =>
@@ -71,7 +47,10 @@ function TechSection({ techPromise }: Props) {
 
   return (
     <>
-      <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10 lg:px-8">
+      <section
+        id="technologies"
+        className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10 lg:px-8"
+      >
         <div className="mb-6 text-left sm:mb-8">
           <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
             Explore the{" "}
@@ -86,8 +65,7 @@ function TechSection({ techPromise }: Props) {
         </div>
 
         <div className="flex flex-col items-start gap-6 lg:flex-row lg:gap-8">
-          {/* Technology Cards */}
-          <div className="order-2 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3 lg:order-1 lg:w-3/4">
+          <div className="order-2 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:order-1 lg:w-3/4 xl:grid-cols-3">
             {technologies.map((tech) => {
               const isAdded = yourStack.includes(String(tech.id));
 
@@ -159,8 +137,8 @@ function TechSection({ techPromise }: Props) {
                       disabled={isAdded}
                       className={`w-full rounded-xl px-4 py-2.5 text-xs font-semibold transition duration-200 active:scale-[0.98] sm:text-sm ${
                         isAdded
-                          ? "cursor-default border border-pink-100 bg-pink-50 text-[#E60067]"
-                          : "cursor-pointer bg-[#0F172A] text-white shadow-sm hover:bg-black"
+                          ? "cursor-not-allowed border border-pink-200 bg-pink-50 text-pink-500"
+                          : "cursor-pointer bg-gray-950 text-white shadow-sm hover:bg-gray-900"
                       }`}
                     >
                       {isAdded ? "✓ Added to Stack" : "Add to Stack"}
@@ -180,8 +158,10 @@ function TechSection({ techPromise }: Props) {
               <p className="mt-0.5 text-xs text-slate-400">
                 {selectedTechnologies.length === 0
                   ? "No Technology Selected"
-                  : `${selectedTechnologies.length} Technology${
-                      selectedTechnologies.length > 1 ? "ies" : "y"
+                  : `${selectedTechnologies.length} ${
+                      selectedTechnologies.length === 1
+                        ? "Technology"
+                        : "Technologies"
                     } Selected`}
               </p>
 
@@ -230,6 +210,7 @@ function TechSection({ techPromise }: Props) {
                             handleRemoveFromStack(tech.id, tech.name)
                           }
                           className="ml-2 cursor-pointer px-1 text-2xl font-light text-slate-400 transition hover:text-slate-700"
+                          aria-label={`Remove ${tech.name}`}
                         >
                           ×
                         </button>
@@ -250,7 +231,19 @@ function TechSection({ techPromise }: Props) {
         </div>
       </section>
 
-      <ToastContainer />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </>
   );
 }

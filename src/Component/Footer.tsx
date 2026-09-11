@@ -2,105 +2,99 @@ import logo from "../assets/logo-text.png";
 
 function Footer() {
   return (
-    <footer className=" border-t border-slate-200 mt-15 pt-12 pb-8 text-slate-600 font-sans">
-      <div className="max-w-7xl bg-#F8FAFC mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-12">
-          <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center space-x-2.5">
+    <footer
+      id="contact"
+      className="mt-12 border-t border-slate-200 bg-[#F8FAFC] pb-8 pt-12 text-slate-600"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 pb-12 md:grid-cols-12 lg:gap-12">
+          <div className="space-y-4 md:col-span-5">
+            <div className="flex items-center">
               <img
                 src={logo}
                 alt="Dev Stack Logo"
                 className="h-9 w-auto object-contain"
               />
-              <span className="text-xl font-bold text-slate-900 tracking-tight">
-                Dev <span className="text-[#E60067]">Stack</span>
-              </span>
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-500 max-w-sm leading-relaxed font-normal">
+            <p className="max-w-sm text-xs leading-relaxed text-slate-500 sm:text-sm">
               Curated tools, technologies, and resources for developers building
               modern software.
             </p>
 
-            <div className="flex items-center space-x-4 pt-1 text-xs sm:text-sm font-semibold text-slate-600">
-              <a
-                href="#github"
-                className="hover:text-[#E60067] transition-colors"
-              >
+            <div className="flex gap-4 text-xs font-semibold text-slate-600 sm:text-sm">
+              <a href="#github" className="transition hover:text-[#E60067]">
                 GitHub
               </a>
-              <a
-                href="#twitter"
-                className="hover:text-[#E60067] transition-colors"
-              >
+
+              <a href="#twitter" className="transition hover:text-[#E60067]">
                 Twitter
               </a>
-              <a
-                href="#linkedin"
-                className="hover:text-[#E60067] transition-colors"
-              >
+
+              <a href="#linkedin" className="transition hover:text-[#E60067]">
                 LinkedIn
               </a>
             </div>
           </div>
 
-          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
-            <div className="space-y-3.5">
-              <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                PRODUCT
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8 md:col-span-7">
+            <div>
+              <h3 className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-900">
+                Product
               </h3>
-              <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-500">
+
+              <ul className="space-y-2.5 text-xs text-slate-500 sm:text-sm">
                 <li>
-                  <a
-                    href="#home"
-                    className="hover:text-[#303030] transition-colors"
-                  >
+                  <a href="#home" className="transition hover:text-slate-900">
                     Home
                   </a>
                 </li>
+
                 <li>
                   <a
                     href="#technologies"
-                    className="hover:text-[#303030] transition-colors"
+                    className="transition hover:text-slate-900"
                   >
                     Technologies
                   </a>
                 </li>
+
                 <li>
                   <a
                     href="#projects"
-                    className="hover:text-[#303030] transition-colors"
+                    className="transition hover:text-slate-900"
                   >
                     Projects
                   </a>
                 </li>
               </ul>
             </div>
-            <div className="space-y-3.5">
-              <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                COMPANY
+
+            <div>
+              <h3 className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-900">
+                Company
               </h3>
-              <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-500">
+
+              <ul className="space-y-2.5 text-xs text-slate-500 sm:text-sm">
                 <li>
-                  <a
-                    href="#about"
-                    className="hover:text-[#303030] transition-colors"
-                  >
+                  <a href="#about" className="transition hover:text-slate-900">
                     About
                   </a>
                 </li>
+
                 <li>
                   <a
                     href="#contact"
-                    className="hover:text-[#303030] transition-colors"
+                    className="transition hover:text-slate-900"
                   >
                     Contact
                   </a>
                 </li>
+
                 <li>
                   <a
                     href="#careers"
-                    className="hover:text-[#303030] transition-colors"
+                    className="transition hover:text-slate-900"
                   >
                     Careers
                   </a>
@@ -108,24 +102,23 @@ function Footer() {
               </ul>
             </div>
 
-            <div className="space-y-3.5 col-span-2 sm:col-span-1">
-              <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                LEGAL
+            <div className="col-span-2 sm:col-span-1">
+              <h3 className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-900">
+                Legal
               </h3>
-              <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-500">
+
+              <ul className="space-y-2.5 text-xs text-slate-500 sm:text-sm">
                 <li>
                   <a
                     href="#privacy"
-                    className="hover:text-[#303030] transition-colors"
+                    className="transition hover:text-slate-900"
                   >
                     Privacy Policy
                   </a>
                 </li>
+
                 <li>
-                  <a
-                    href="#terms"
-                    className="hover:text-[#303030] transition-colors"
-                  >
+                  <a href="#terms" className="transition hover:text-slate-900">
                     Terms of Service
                   </a>
                 </li>
@@ -134,17 +127,15 @@ function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-slate-200 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3 text-center sm:text-left">
+        <div className="flex flex-col items-center justify-between gap-3 border-t border-slate-200 pt-6 text-center text-xs text-slate-400 sm:flex-row sm:text-left">
           <p>© 2026 Dev Stack. All rights reserved.</p>
 
-          <div className="flex items-center space-x-4 font-medium text-slate-500">
-            <a
-              href="#privacy"
-              className="hover:text-slate-800 transition-colors"
-            >
+          <div className="flex gap-4 font-medium text-slate-500">
+            <a href="#privacy" className="transition hover:text-slate-800">
               Privacy
             </a>
-            <a href="#terms" className="hover:text-slate-800 transition-colors">
+
+            <a href="#terms" className="transition hover:text-slate-800">
               Terms
             </a>
           </div>
