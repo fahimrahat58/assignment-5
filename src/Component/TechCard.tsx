@@ -134,11 +134,10 @@ function TechSection({ techPromise }: Props) {
 
                     <button
                       onClick={() => handleAddToStack(tech.id, tech.name)}
-                      disabled={isAdded}
-                      className={`w-full rounded-xl px-4 py-2.5 text-xs font-semibold transition duration-200 sm:text-sm ${
+                      className={`w-full rounded-xl px-4 py-2.5 text-xs font-semibold transition duration-200 active:scale-[0.98] sm:text-sm ${
                         isAdded
-                          ? "cursor-not-allowed border border-pink-200 bg-pink-50 text-pink-500"
-                          : "cursor-pointer bg-gray-950 text-white shadow-sm hover:bg-gray-900 active:scale-[0.98]"
+                          ? "cursor-pointer border border-pink-200 bg-pink-50 text-pink-500"
+                          : "cursor-pointer  bg-gray-950 text-white shadow-sm hover:bg-gray-900"
                       }`}
                     >
                       {isAdded ? "✓ Added to Stack" : "Add to Stack"}
