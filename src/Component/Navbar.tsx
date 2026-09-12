@@ -124,7 +124,7 @@ function Navbar() {
             Sign In
           </button>
 
-          <button className="cursor-pointer whitespace-nowrap rounded-full bg-pink-600 px-3 py-2 text-xs font-bold text-white transition hover:bg-pink-700 sm:px-5 sm:text-sm">
+          <button className="brand-gradient cursor-pointer whitespace-nowrap rounded-full px-3 py-2 text-xs font-bold text-white transition hover:opacity-90 sm:px-5 sm:text-sm">
             Sign Up
           </button>
         </div>
