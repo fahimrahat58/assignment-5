@@ -12,18 +12,11 @@ function TechCard({ techPromise }: Props) {
 
   const [yourStack, setYourStack] = useState<string[]>([]);
 
-  const [disabledButtons, setDisabledButtons] = useState<string[]>([]);
-
   const handleAddToStack = (id: string | number, name: string) => {
     const techId = String(id);
 
     if (yourStack.includes(techId)) {
       toast.warning(`${name} is already in your stack!`);
-
-      setDisabledButtons((prev) =>
-        prev.includes(techId) ? prev : [...prev, techId],
-      );
-
       return;
     }
 
@@ -37,18 +30,14 @@ function TechCard({ techPromise }: Props) {
 
     setYourStack((prev) => prev.filter((item) => item !== techId));
 
-    setDisabledButtons((prev) => prev.filter((item) => item !== techId));
-
     toast.warning(`${name} removed from your stack!`);
   };
-
   const handleRemoveAll = () => {
     if (yourStack.length === 0) {
       return;
     }
 
     setYourStack([]);
-    setDisabledButtons([]);
 
     toast.warning("Stack Cleared");
   };
@@ -75,7 +64,7 @@ function TechCard({ techPromise }: Props) {
             {technologies.map((tech) => {
               const techId = String(tech.id);
 
-              const isDisabled = disabledButtons.includes(techId);
+              const isAdded = yourStack.includes(techId);
 
               return (
                 <div
@@ -125,14 +114,13 @@ function TechCard({ techPromise }: Props) {
 
                   <button
                     onClick={() => handleAddToStack(tech.id, tech.name)}
-                    disabled={isDisabled}
-                    className={`mt-5 w-full rounded-xl px-4 py-2.5 text-xs font-semibold transition duration-200 sm:text-sm ${
-                      isDisabled
-                        ? "cursor-not-allowed border border-pink-200 bg-pink-50 text-pink-500"
-                        : "cursor-pointer border-transparent bg-gray-800 text-white shadow-sm hover:bg-gray-900 active:scale-[0.98]"
+                    className={`mt-5 w-full rounded-xl px-4 py-2.5 text-xs font-semibold transition duration-200 active:scale-[0.98] sm:text-sm ${
+                      isAdded
+                        ? "cursor-pointer border border-pink-200 bg-pink-50 text-pink-500"
+                        : "cursor-pointer bg-gray-950 text-white shadow-sm hover:bg-gray-900"
                     }`}
                   >
-                    {isDisabled ? "✓ Added to Stack" : "Add to Stack"}
+                    {isAdded ? "✓ Added to Stack" : "Add to Stack"}
                   </button>
                 </div>
               );
