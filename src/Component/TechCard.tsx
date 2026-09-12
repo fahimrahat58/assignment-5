@@ -54,7 +54,7 @@ function TechSection({ techPromise }: Props) {
         <div className="mb-6 text-left sm:mb-8">
           <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
             Explore the{" "}
-            <span className="bg-linear-to-r from-[#FF5E36] via-[#E60067] to-[#8F00FF] bg-clip-text text-transparent">
+            <span className="gradient-text bg-clip-text text-transparent">
               Technologies
             </span>
           </h1>
@@ -134,10 +134,11 @@ function TechSection({ techPromise }: Props) {
 
                     <button
                       onClick={() => handleAddToStack(tech.id, tech.name)}
-                      className={`w-full rounded-xl px-4 py-2.5 text-xs font-semibold transition duration-200 active:scale-[0.98] sm:text-sm ${
+                      disabled={isAdded}
+                      className={`w-full rounded-xl px-4 py-2.5 text-xs font-semibold transition duration-200 sm:text-sm ${
                         isAdded
-                          ? "cursor-pointer border border-pink-200 bg-pink-50 text-pink-500"
-                          : "cursor-pointer  bg-gray-950 text-white shadow-sm hover:bg-gray-900"
+                          ? "cursor-not-allowed border border-pink-200 bg-pink-50 text-pink-500"
+                          : "cursor-pointer bg-gray-950 text-white shadow-sm hover:bg-gray-900 active:scale-[0.98]"
                       }`}
                     >
                       {isAdded ? "✓ Added to Stack" : "Add to Stack"}

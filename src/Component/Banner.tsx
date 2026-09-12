@@ -25,7 +25,7 @@ function Banner() {
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
             <a
               href="#technologies"
-              className="w-full rounded-lg bg-linear-to-r from-[#FF5E36] via-[#E60067] to-[#8F00FF] px-5 py-3 text-center text-sm font-semibold text-white shadow-sm transition duration-200 hover:opacity-90 sm:w-auto"
+             className="w-full rounded-lg brand-gradient px-5 py-3 text-center text-sm font-semibold text-white shadow-sm transition duration-200 hover:opacity-90 sm:w-auto"
             >
               Explore Technologies
             </a>
