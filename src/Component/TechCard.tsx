@@ -70,7 +70,6 @@ function TechCard({ techPromise }: Props) {
       </div>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
-        {/* Technology Cards */}
         <div className="lg:col-span-3">
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {technologies.map((tech) => {
@@ -111,20 +110,15 @@ function TechCard({ techPromise }: Props) {
 
                   <div className="mt-4 flex items-center justify-between gap-2 text-xs">
                     <span className="font-medium text-gray-500">
-                      Category:{" "}
                       <span className="text-gray-800">{tech.category}</span>
                     </span>
 
                     <span className="font-medium text-gray-500">
-                      Difficulty:{" "}
                       <span className="text-gray-800">{tech.difficulty}</span>
                     </span>
-                  </div>
 
-                  <div className="mt-3 flex items-center gap-1 text-sm">
-                    <span className="text-yellow-500">★</span>
-
-                    <span className="font-semibold text-gray-800">
+                    <span className="flex items-center gap-1 font-semibold text-gray-800">
+                      <span className="text-yellow-500">★</span>
                       {tech.rating}
                     </span>
                   </div>
@@ -147,7 +141,6 @@ function TechCard({ techPromise }: Props) {
         </div>
 
         <aside className="h-fit rounded-2xl border border-gray-200 bg-white p-5 shadow-sm lg:sticky lg:top-24">
-          {/* Stack Header */}
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-lg font-bold text-gray-950">Your Stack</h2>
