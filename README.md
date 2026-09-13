@@ -1,6 +1,6 @@
-# StackForge
+# Dev Stack
 
-StackForge is a modern web application that helps developers explore, compare, and build their ideal technology stack. Users can browse different technologies and add their preferred tools to a personalized stack.
+Dev Stack is a modern web application that helps developers explore, compare, and build their ideal technology stack. Users can browse different technologies and add their preferred tools to a personalized stack.
 
 ## Technologies Used
 
